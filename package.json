@@ -1,5 +1,5 @@
 {
-  "name": "@electron-linux-os/pynode-layer-node",
+  "name": "@electron-linux-os/pynodelayer-node",
   "version": "1.0.1",
   "description": "This is Pynode NodeJS layer",
   "main": "index.js" ,
