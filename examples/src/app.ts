@@ -1,4 +1,4 @@
-import { Client } from '../../build/js/n.client';
+/*import { Client } from '../../build/js/n.client';
 
 const client = new Client();
-client.call('install' , ['first' , 'second']);
+client.call('install' , ['first' , 'second']);*/

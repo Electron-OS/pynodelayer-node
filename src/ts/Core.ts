@@ -2,7 +2,7 @@ import express = require("express");
 import http = require('http');
 import io = require('socket.io');
 
-export class Listener {
+export class Core {
   express: any;
   http: any;
   io: any;

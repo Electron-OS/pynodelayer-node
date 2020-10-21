@@ -1,13 +1,13 @@
-import { Listener } from './n.listener';
+import { Core } from './Core';
 
 export class Client {
   io: any;
-  listener: any;
+  core: any;
   socket: any;
 
   constructor() {
-    this.listener = new Listener();
-    this.io = this.listener.getIO();
+    this.core = new Core();
+    this.io = this.core.getIO();
   }
 
   call(func: string , args?: any[]) {
