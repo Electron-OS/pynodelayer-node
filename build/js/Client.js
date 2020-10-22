@@ -8,12 +8,19 @@ var Client = /** @class */ (function () {
         this.io = this.core.getIO();
     }
     Client.prototype.call = function (func, args) {
-        this.io.on('connection', function (socket) {
-            socket.emit('runTask', {
-                'func': func,
-                'args': Object.assign({}, args)
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.io.on('connection', function (socket) {
+                var id = Date.now();
+                socket.emit('runTask', {
+                    'id': id.toString(),
+                    'func': func,
+                    'args': Object.assign({}, args)
+                });
+                socket.on(id.toString(), function (msg) {
+                    resolve(msg);
+                });
             });
-            console.log('Pocket sended !');
         });
     };
     return Client;

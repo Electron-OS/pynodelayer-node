@@ -3,7 +3,6 @@ import { Core } from './Core';
 export class Client {
   io: any;
   core: any;
-  socket: any;
 
   constructor() {
     this.core = new Core();
@@ -11,12 +10,20 @@ export class Client {
   }
 
   call(func: string , args?: any[]) {
-    this.io.on('connection', (socket: any) => {
-      socket.emit('runTask', {
-        'func' : func ,
-        'args' : Object.assign({}, args)
+    return new Promise((resolve , reject) => {
+      this.io.on('connection', (socket: any) => {
+        let id = Date.now();
+
+        socket.emit('runTask', {
+          'id' : id.toString() ,
+          'func' : func ,
+          'args' : Object.assign({}, args)
+        });
+
+        socket.on(id.toString() , (msg: any) => {
+          resolve(msg);
+        });
       });
-      console.log('Pocket sended !');
     });
   }
 }
