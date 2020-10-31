@@ -5,7 +5,6 @@ const tsProject = ts.createProject('tsconfig.json');
 
 function watchTask() {
   watch(['src/ts/*.ts'], series(transpileMain));
-  watch(['examples/src/*.ts'], series(transpileExamples));
 }
 
 function transpileMain() {
@@ -14,11 +13,5 @@ function transpileMain() {
     .pipe(dest('build/js'));
 }
 
-function transpileExamples() {
-  return src('examples/src/*.ts')
-    .pipe(tsProject())
-    .pipe(dest('examples/build'));
-}
-
-exports.default = series(transpileExamples , transpileMain);
+exports.default = transpileMain;
 exports.watch = watchTask;

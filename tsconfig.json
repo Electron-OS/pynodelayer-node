@@ -1,4 +1,11 @@
 {
   "allowJs": true ,
-  "noImplicitAny": false
+  "noImplicitAny": false ,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./build",
+    "strict": true
+  }
 }
