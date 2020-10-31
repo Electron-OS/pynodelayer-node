@@ -1,9 +1,9 @@
 {
   "name": "@electron-linux-os/pynodelayer-node",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "This is Pynode NodeJS layer",
-  "main": "index.js",
-  "types": "index.d.ts" ,
+  "main": "index",
+  "types": "lib/index.d.ts" ,
   "scripts": {},
   "repository": {
     "type": "git",

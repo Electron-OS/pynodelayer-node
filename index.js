@@ -1,4 +1,4 @@
-const _Client = require("./build/js/Client");
+const _Client = require("./lib/Client");
 
 // Export Client
 module.exports = function Client() {
