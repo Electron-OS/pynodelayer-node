@@ -1,6 +1,6 @@
 const _Client = require("./build/js/Client");
 
 // Export Client
-exports.Client = function() {
+module.exports = function Client() {
   return new _Client.Client();
 };

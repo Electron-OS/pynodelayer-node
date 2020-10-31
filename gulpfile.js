@@ -4,13 +4,13 @@ const ts = require('gulp-typescript');
 const tsProject = ts.createProject('tsconfig.json');
 
 function watchTask() {
-  watch(['src/ts/*.ts'], series(transpileMain));
+  watch(['src/*.ts'], series(transpileMain));
 }
 
 function transpileMain() {
-  return src('src/ts/*.ts')
+  return src('src/*.ts')
     .pipe(tsProject())
-    .pipe(dest('build/js'));
+    .pipe(dest('lib'));
 }
 
 exports.default = transpileMain;
